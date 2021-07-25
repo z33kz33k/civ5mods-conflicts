@@ -44,9 +44,6 @@ def get_duplicates_maps(*mods: Mod) -> Tuple[Dict[str, List[Path]], Dict[str, Li
     lua_paths = {LuaPath(path, mod.name) for mod in mods for path in mod.lua_paths}
     d = defaultdict(list)
     for lua_path in lua_paths:
-        # filter out "Community Balance" lua's as they doesn't constitute conflicts
-        # if "Community Balance" in lua_path.modname:
-        #     continue
         values = d.get(lua_path.filepath.name)
         if values is None:
             d[lua_path.filepath.name].append(lua_path)

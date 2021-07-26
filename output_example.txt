@@ -1,0 +1,96 @@
+Parsed 285 .lua file(s) from 55 mod(s):
+1) (1) Community Patch (v 94)
+2) (2) Community Balance Overhaul (v 13)
+3) (4) C4DF - CBP (v 11)
+4) (6a) Community Balance Overhaul - Compatibility Files (EUI) (v 1)
+5) (7) Community Events (v 5)
+6) (7c) Leugi's Israel for VP
+7) (over) More Unique Components for VP (v 72)
+8) (overhaul) More Wonders for VP (v 1)
+9) (text) Alternative Component Names for VP (v 5)
+10) (text) Promotion Overhaul for VP (v 23)
+11) (ui) City-States Leaders for VP (v 10)
+12) (ui) List Enhancements for VP (v 5.2)
+13) (ui) Trade Opportunities for VP (v 11)
+14) (ui) Wonder Planner for VP (v 9)
+15) Archaeology Aesthetic Adjustments (v 1)
+16) Capture+++ (v 4)
+17) City-State Diplomacy Mod (CSD) for Brave New World (v 27)
+18) Enhanced Naval Warfare for Vox Populi (v 1)
+19) Enlightenment Era (Vox Populi) (v 4)
+20) Even More Resources for Vox Populi (v 8)
+21) Historical Religions (BNW or GK) (v 55)
+22) Improved City View (Vox Populi - with EUI) (v 11)
+23) InfoAddict (v 22)
+24) JFD's Civilizations - Great Britain (Victoria) for Vox Populi (v 5)
+25) JFD's Civilizations - Japan (Meiji) for Vox Populi (v 3)
+26) JFD's Civilizations - Japan (Tojo) for Vox Populi (v 9)
+27) JFD's Civilizations - Papal States (Pius IX) for Vox Populi (v 8)
+28) JFD's Civilizations - Prussia (Frederick) for Vox Populi (v 9)
+29) JFD's Civilizations - United States of America (Roosevelt) for VP (v 7)
+30) Leadership Reformation (v 4)
+31) MC and LITE's Nubia  for VP (v16)
+32) MC's Greece and Macedon Split for VP (v14)
+33) Meaningful Colours (v 8)
+34) More Luxuries (v 155)
+35) National Parks (v 1)
+36) National Wonder Collection (v 3)
+37) Promotion Flags EUI for VP (v 3)
+38) Promotion Tree (v 22)
+39) Provincial Palace (v 3)
+40) Quick Turns (v 10)
+41) Sukritact's Khmer Civilization for VP (v12)
+42) Sumer (CBP) (v 21)
+43) The Garamantes (Brave New World) (v 39)
+44) The Goths (BNW or GK) (v 69)
+45) The Goths Vox Populi Compatibility (v 1)
+46) The Timurids - 4UC (VP) (v 14)
+47) UI - Filters in Trade Route Overview (Vox Populi) (v 1)
+48) UI - Religion Spread (Vox Populi) (v 1)
+49) UI - Show XP in Military Overview (v 2)
+50) Unique City-States (v 6)
+51) Unit Path Viewer (v 10)
+52) Vox Populi's Bare Necessities (v 5)
+53) Worker Mountaineering (v 2)
+54) World Congress Reformation (v 8)
+55) promotion_icons_vp
+
+Duplicates overwriting VP .lua's:
+=================================
+
+('UnitPanel.lua',
+ [LuaFile(path=PosixPath('mods/Leadership Reformation (v 4)/LUA/ClickHereIfCBPEUI/UnitPanel.lua'), modname='Leadership Reformation (v 4)'),
+  LuaFile(path=PosixPath('mods/(6a) Community Balance Overhaul - Compatibility Files (EUI)/LUA/UnitPanel.lua'), modname='(6a) Community Balance Overhaul - Compatibility Files (EUI) (v 1)'),
+  LuaFile(path=PosixPath('mods/Promotion Flags EUI (for VP) (v 3)/UI/UnitPanel.lua'), modname='Promotion Flags EUI for VP (v 3)')])
+
+Other duplicates:
+=================
+
+('Goth Lua Check.lua',
+ [LuaFile(path=PosixPath('mods/The Goths Vox Populi Compatibility/Goth Lua Check.lua'), modname='The Goths Vox Populi Compatibility (v 1)'),
+  LuaFile(path=PosixPath('mods/The Goths (BNW or GK) (v 69)/Lua/Goth Lua Check.lua'), modname='The Goths (BNW or GK) (v 69)')])
+('Goth Mod Via Appia Script.lua',
+ [LuaFile(path=PosixPath('mods/The Goths (BNW or GK) (v 69)/Lua/Goth Mod Via Appia Script.lua'), modname='The Goths (BNW or GK) (v 69)'),
+  LuaFile(path=PosixPath('mods/The Goths Vox Populi Compatibility/Goth Mod Via Appia Script.lua'), modname='The Goths Vox Populi Compatibility (v 1)')])
+('NW_CentralBank.lua',
+ [LuaFile(path=PosixPath("mods/Vox Populi's Bare Necessities (v 5)/NW_CentralBank.lua"), modname="Vox Populi's Bare Necessities (v 5)"),
+  LuaFile(path=PosixPath('mods/National Wonder Collection (v 3)/Central Bank/NW_CentralBank.lua'), modname='National Wonder Collection (v 3)')])
+('NW_CentralStation.lua',
+ [LuaFile(path=PosixPath('mods/National Wonder Collection (v 3)/Central Station/NW_CentralStation.lua'), modname='National Wonder Collection (v 3)'),
+  LuaFile(path=PosixPath("mods/Vox Populi's Bare Necessities (v 5)/NW_CentralStation.lua"), modname="Vox Populi's Bare Necessities (v 5)")])
+('NW_ElectricCompany.lua',
+ [LuaFile(path=PosixPath('mods/National Wonder Collection (v 3)/Electric Company/NW_ElectricCompany.lua'), modname='National Wonder Collection (v 3)'),
+  LuaFile(path=PosixPath("mods/Vox Populi's Bare Necessities (v 5)/NW_ElectricCompany.lua"), modname="Vox Populi's Bare Necessities (v 5)")])
+('NewSaveUtils.lua',
+ [LuaFile(path=PosixPath('mods/(ui) Wonder Planner For VP/UI/NewSaveUtils.lua'), modname='(ui) Wonder Planner for VP (v 9)'),
+  LuaFile(path=PosixPath("mods/JFD's Civilizations - United States of America (Roosevelt) for VP (v 7)/Lua/Utilities/NewSaveUtils.lua"), modname="JFD's Civilizations - United States of America (Roosevelt) for VP (v 7)")])
+('PlotIterators.lua',
+ [LuaFile(path=PosixPath("mods/JFD's Civilizations - United States of America (Roosevelt) for VP (v 7)/Lua/Utilities/PlotIterators.lua"), modname="JFD's Civilizations - United States of America (Roosevelt) for VP (v 7)"),
+  LuaFile(path=PosixPath('mods/Leadership Reformation (v 4)/LUA/PlotIterators.lua'), modname='Leadership Reformation (v 4)'),
+  LuaFile(path=PosixPath("mods/MC's Greece and Macedon Split for VP (v14)/Lua/PlotIterators.lua"), modname="MC's Greece and Macedon Split for VP (v14)")])
+('UnitSpawnHandler.lua',
+ [LuaFile(path=PosixPath("mods/JFD's Civilizations - Japan (Meiji) for Vox Populi (v 3)/Lua/Utilities/UnitSpawnHandler.lua"), modname="JFD's Civilizations - Japan (Meiji) for Vox Populi (v 3)"),
+  LuaFile(path=PosixPath("mods/JFD's Civilizations - Prussia (Frederick) for Vox Populi (v 9)/Lua/Utilities/UnitSpawnHandler.lua"), modname="JFD's Civilizations - Prussia (Frederick) for Vox Populi (v 9)"),
+  LuaFile(path=PosixPath("mods/JFD's Civilizations - Great Britain (Victoria) for Vox Populi (v 5)/Lua/Utilities/UnitSpawnHandler.lua"), modname="JFD's Civilizations - Great Britain (Victoria) for Vox Populi (v 5)")])
+
+Process finished with exit code 0

@@ -18,43 +18,43 @@ from typing import Dict, List, Tuple
 
 
 @dataclass(eq=True, frozen=True)
-class LuaPath:
-    filepath: Path
+class LuaFile:
+    path: Path
     modname: str
 
 
 class Mod:
     """A Civ V mod represented by its name and all the .lua files it holds.
     """
-    def __init__(self, modinfo_file: Path, *lua_paths: Path) -> None:
+    def __init__(self, modinfo_file: Path, *lua_files: Path) -> None:
         self.modinfo_file = modinfo_file
-        self.lua_paths = lua_paths
+        self.lua_files = lua_files
 
     @property
     def name(self) -> str:
         return self.modinfo_file.stem
 
 
-def get_duplicates_maps(*mods: Mod) -> Tuple[Dict[str, List[Path]], Dict[str, List[Path]]]:
-    """Return two dictionaries of LUA files' names mapped to a list of corresponding LuaPath objects
-    (each containing two fields: filepath and modname). The first dict maps cases when VP .lua's
+def find_conflicts(*mods: Mod) -> Tuple[Dict[str, List[Path]], Dict[str, List[Path]]]:
+    """Return two dictionaries of LUA files' names mapped to a list of corresponding LuaFile objects
+    (each containing two fields: path and modname). The first dict maps cases where VP .lua's
     are overwritten by at least two other mods (almost a sure conflict) and the second one maps
     other cases where at least two same .lua's come from different mods (a potential conflict).
     """
-    lua_paths = {LuaPath(path, mod.name) for mod in mods for path in mod.lua_paths}
+    lua_files = {LuaFile(file, mod.name) for mod in mods for file in mod.lua_files}
     d = defaultdict(list)
-    for lua_path in lua_paths:
-        values = d.get(lua_path.filepath.name)
+    for lua_file in lua_files:
+        values = d.get(lua_file.path.name)
         if values is None:
-            d[lua_path.filepath.name].append(lua_path)
+            d[lua_file.path.name].append(lua_file)
         # only one lua per mod is allowed
         else:
-            if lua_path.modname not in [v.modname for v in values]:
-                d[lua_path.filepath.name].append(lua_path)
+            if lua_file.modname not in [v.modname for v in values]:
+                d[lua_file.path.name].append(lua_file)
 
     conflictsmap, potential_conflicts_map = {}, {}
     for k, v in d.items():
-        if (any(modname[0] == "(" and modname[1].isdigit() for modname in [lp.modname for lp in v])
+        if (any(modname[0] == "(" and modname[1].isdigit() for modname in [lf.modname for lf in v])
                 and len(v) >= 3):
             conflictsmap[k] = v
         elif (not any(modname[0] == "(" and modname[1].isdigit()
@@ -74,34 +74,34 @@ def getmods(path: Path) -> List[Mod]:
 
     mods = []
     for dir_ in dirs:
-        lua_paths = []
+        lua_files = []
         for dirpath, _, filenames in os.walk(dir_):
             for filename in filenames:
                 path = Path(dirpath) / filename
                 if path.suffix.lower() == ".lua":
-                    lua_paths.append(path)
+                    lua_files.append(path)
         modinfo = next((path for path in dir_.iterdir() if path.suffix.lower() == ".modinfo"),
                        None)
         if modinfo is None:
             raise ValueError(f"Directory '{dir_}' does not contain a .modinfo file.")
 
-        mods.append(Mod(modinfo, *lua_paths))
+        mods.append(Mod(modinfo, *lua_files))
 
     return mods
 
 
 def print_conflicts(dir_: Path) -> None:
-    """Pretty-print all detected conflicts at directory.
+    """Pretty-print all detected conflicts at input directory.
     """
     mods = getmods(dir_)
-    lua_paths = [path for mod in mods for path in mod.lua_paths]
-    print(f"Parsed {len(lua_paths)} .lua file(s) from {len(mods)} mod(s):")
+    lua_files = [path for mod in mods for path in mod.lua_files]
+    print(f"Parsed {len(lua_files)} .lua file(s) from {len(mods)} mod(s):")
     for i, mod in enumerate(sorted(mods, key=lambda m: m.name), start=1):
         print(f"{i}) {mod.name}")
 
     print()
 
-    conflictsmap, potentialsmap = get_duplicates_maps(*mods)
+    conflictsmap, potentialsmap = find_conflicts(*mods)
     print("Duplicates overwriting VP .lua's:")
     print("=================================")
     print()
